@@ -163,7 +163,7 @@ func generateDockerSocket(dGroup DockerGroup) {
 	// [Socket]
 	// ListenStream=/var/run/docker.sock
 	// SocketMode=0660
-	q // SocketUser=root
+	// SocketUser=root
 	// SocketGroup=docker
 
 	// [Install]
