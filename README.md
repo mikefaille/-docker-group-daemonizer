@@ -30,9 +30,11 @@ DOCKER_HOST must contain docker-eqx socket named /var/run/docker-eqx.sock
 Example : 
 
 `$ groups`
+
 michael docker-eq1
 
 `ls -la /var/run/docker-eq2.sock`
+
 srw-rw---- 1 root docker-eq2 0 Sep  3 15:57 /var/run/docker-eq1.sock
 
 ```bash
