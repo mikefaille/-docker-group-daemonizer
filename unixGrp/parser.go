@@ -4,12 +4,14 @@ import (
 	"bufio"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 )
 
 type Group struct {
 	Name    string
 	Members []string
+	Guid    int64
 }
 
 func TakeAllGroups() (chanGroup chan Group) {
@@ -29,12 +31,7 @@ func TakeAllGroups() (chanGroup chan Group) {
 			copy(lineB, out)
 			line := string(lineB[:])
 
-			currentG := takeGroup(line)
-
-			members, err := takeGroupMember(line)
-			if err == nil {
-				currentG.Members = members
-			}
+			currentG := takeGroupArray(line)
 
 			currentChanGroup <- currentG
 
@@ -51,17 +48,13 @@ func TakeAllGroups() (chanGroup chan Group) {
 
 }
 
-func takeGroup(s string) Group {
-	groupEnd := strings.Index(s, ":")
-	g := Group{Name: s[:groupEnd], Members: []string{}}
+func takeGroupArray(groupLine string) Group {
+	group := strings.Split(groupLine, ":")
+	guid := group[2]
+	intGuid, _ := strconv.ParseInt(guid, 10, 64)
+	members := strings.Split(group[3], ",")
+	g := Group{Name: group[0], Guid: intGuid, Members: members}
 	return g
-}
-
-func takeGroupMember(s string) (members []string, err error) {
-
-	membersString := strings.LastIndex(s, ":")
-	members = strings.Split(s[membersString+1:], ",")
-	return
 }
 
 func check(e error) {
