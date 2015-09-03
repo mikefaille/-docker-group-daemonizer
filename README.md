@@ -5,7 +5,7 @@ Requirement :
 - Linux 3.10+
 - Upstart or systemd (for now systemd must activated from code)
 - docker 1.8
-- to build it : Golang, GCC et kernel-header is needed since Netlink Linux interface is used
+- to build it : Golang, GCC and linux-headers is needed since Netlink Linux interface is used
 
 
 Build : 
