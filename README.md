@@ -30,10 +30,10 @@ DOCKER_HOST must contain docker-eqx socket named /var/run/docker-eqx.sock
 Example : 
 
 `$ groups`
-michael docker-eq21
+michael docker-eq1
 
-`ls -la /var/run/docker-eq20.sock`
-srw-rw---- 1 root docker-eq20 0 Sep  3 15:57 /var/run/docker-eq20.sock
+`ls -la /var/run/docker-eq2.sock`
+srw-rw---- 1 root docker-eq2 0 Sep  3 15:57 /var/run/docker-eq1.sock
 
 ```bash
 export DOCKER_HOST=unix:///var/run/docker-eq1.sock
@@ -45,5 +45,5 @@ And, `docker info` should output something like this :
 ```
 (...)
 Labels:
- [equipe=20]
+ [equipe=1]
 ```
