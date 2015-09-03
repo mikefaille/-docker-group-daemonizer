@@ -11,8 +11,8 @@ Requirement :
 Build : 
   
   ```bash
-  git clone https://github.com/mikefaille/docker-group-daemonizer.git
-  cd docker-group-daemonizer
+  go get github.com/mikefaille/docker-group-daemonizer
+  cd $GOPATH/src/github.com/mikefaille/docker-group-daemonizer
   go build .
   # docker-group-daemonizer bin is now generated
   ```
