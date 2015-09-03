@@ -4,7 +4,7 @@ Fast and usefull script to daemonize docker groups
 Requirement : 
 - Linux 3.10+
 - Upstart or systemd (for now systemd must activated from code)
-- docker 1.8
+- docker 1.8+
 - to build it : Golang, GCC and linux-headers is needed since Netlink Linux interface is used
 
 
