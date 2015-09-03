@@ -181,12 +181,13 @@ func (dGroup DockerGroup) GenerateSystemdSocket() {
 
 func (dGroup DockerGroup) generateUpstartDaemon() {
 
-	dat, err := ioutil.ReadFile("docker-upstart.tmpl")
-	if err != nil {
-		fmt.Println("File named \"docker-upstart.tmpl\" must be loaded")
-	}
+	// TODO remove old template as file ?
+	// dat, err := ioutil.ReadFile("docker-upstart.tmpl")
+	// if err != nil {
+	// 	fmt.Println("File named \"docker-upstart.tmpl\" must be loaded")
+	// }
 
-	tmpl, err := template.New("upstartDaemon").Parse(string(dat))
+	tmpl, err := template.New("upstartDaemon").Parse(string(GetUpstartTemplate()))
 	if err != nil {
 		panic(err)
 	}
