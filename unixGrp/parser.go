@@ -2,7 +2,6 @@ package unixGrp
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -24,7 +23,7 @@ func TakeAllGroups() (chanGroup chan Group) {
 	go func() {
 
 		for scanner.Scan() {
-			fmt.Println(1)
+
 			out := scanner.Bytes()
 			lineB := make([]byte, len(out))
 			copy(lineB, out)
@@ -40,7 +39,7 @@ func TakeAllGroups() (chanGroup chan Group) {
 			currentChanGroup <- currentG
 
 		}
-		fmt.Println(2)
+
 		close(currentChanGroup)
 		file.Close()
 	}()

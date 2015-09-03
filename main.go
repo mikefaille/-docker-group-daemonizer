@@ -20,8 +20,7 @@ func main() {
 
 		if err == nil {
 
-			gDocker.GenerateDockerService()
-			gDocker.GenerateDockerSocket()
+			gDocker.GenerateDockerDaemon()
 
 			if ok, err := tenus.IsInterfaceExist(gDocker.Name); !ok || err != nil {
 				check(err)
