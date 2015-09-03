@@ -42,7 +42,8 @@ docker images
 ```
 
 And, `docker info` should output something like this : 
+```
 (...)
 Labels:
  [equipe=20]
- 
+```
