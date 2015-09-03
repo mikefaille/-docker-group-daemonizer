@@ -18,12 +18,8 @@ Build :
   ```
 
 Usage : 
-  Create docker group using this next naming schemes :
-    docker-eqX
-  where X is a number between 1 and 100
-'''bash
-sudo docker-group-daemonizer'
-'''
+  Create docker group using this next naming schemes : `docker-eqX`
+  where X is a number between 1 and 100. After exec it : `sudo docker-group-daemonizer`
  
 Result : 
 Each docker-eqx group having users will obtain dedicated/isolated docker deamon.
