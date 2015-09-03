@@ -33,9 +33,9 @@ Example :
 
 michael docker-eq1
 
-`ls -la /var/run/docker-eq2.sock`
+`ls -la /var/run/docker-eq1.sock`
 
-srw-rw---- 1 root docker-eq2 0 Sep  3 15:57 /var/run/docker-eq1.sock
+srw-rw---- 1 root docker-eq1 0 Sep  3 15:57 /var/run/docker-eq1.sock
 
 ```bash
 export DOCKER_HOST=unix:///var/run/docker-eq1.sock
