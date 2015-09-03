@@ -27,4 +27,4 @@ Each docker-eqx group having users will obtain dedicated/isolated docker deamon.
 
 To use these deamon using docker cli, we need to specify appropritate DOCKER_HOST env. variable for each user.
 
-DOCKER_HOST normally contain docker-eqx socket named /var/run/docker-eqx.sock
+DOCKER_HOST must contain docker-eqx socket named /var/run/docker-eqx.sock
