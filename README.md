@@ -49,3 +49,26 @@ And, `docker info` should output something like this :
 Labels:
  [equipe=1]
 ```
+
+## Troubleshoot
+
+Error no1 : 
+
+```
+$ docker pull 
+Using default tag: latest
+Cannot connect to the Docker daemon. Is 'docker -d' running on this host?
+```
+
+Explanation no1 :
+
+You can connect to the socket `unix:///var/run/docker-eq1.sock` but the associated deamon is down. Why ? The daemon's bridge could be down or the bridge didn't receive is IP address. You can check if bridge name exist `docker-eq20` with is ip using following command to list network interfaces : `ip adddr`
+
+Fix no1. :
+
+Just recreate bridge using `docker-group-daemonizer`
+
+
+
+
+
