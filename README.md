@@ -66,9 +66,11 @@ You can connect to the socket `unix:///var/run/docker-eq1.sock` but the associat
 
 Fix no1. :
 
-Just recreate bridge using `docker-group-daemonizer`
+Just recreate bridges named docker-eqx using `docker-group-daemonizer`.
 
 
+## TODO
 
+(easy to implement) Since docker-group-daemonizer regenerate all bridge named docker-eqx, each execution stop all associated daemon. We must having a way to add only missing bridge. And, --> optionnaly, reset bridge. 
 
-
+(easy to implement) Manually specify only one docker interface at time corresponding docker-eqx to be added.
