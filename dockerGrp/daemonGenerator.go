@@ -48,7 +48,7 @@ func (gDocker DockerGroup) AddNewDockerBr() {
 
 func (dGroup DockerGroup) GenerateDockerDaemon() {
 
-	tmpl, err := template.New("dockerOpts").Parse("-b  {{.Name}}  -g /var/lib/{{.Name}}  -G {{.Name}}  --exec-root=/var/run/docker{{.Number}} --pidfile=\"/var/run/{{.Name}}.pid\" --label=[\"equipe={{.Number}}\"] -H unix:///var/run/{{.Name}}.sock\n")
+	tmpl, err := template.New("dockerOpts").Parse("-b  {{.Name}}  -g /var/lib/{{.Name}}  -G {{.Name}}  --exec-root=/var/run/docker{{.Number}} --pidfile=\"/var/run/{{.Name}}.pid\" --label=[\"equipe={{.Number}}\"] -H unix:///var/run/{{.Name}}.sock")
 	if err != nil {
 		panic(err)
 	}
@@ -198,14 +198,14 @@ func (dGroup DockerGroup) generateUpstartDaemon() {
 	err = tmpl.Execute(buf, dGroup)
 
 	upstartFilePath := fmt.Sprint("/etc/init/", dGroup.Name, ".conf")
-	err = ioutil.WriteFile(upstartFilePath, buf.Bytes(), 0755)
+	err = ioutil.WriteFile(upstartFilePath, buf.Bytes(), 0644)
 	if err != nil {
 		panic(err)
 	}
 
-	dockerOPTS := fmt.Sprint("DOCKER_OPTS=\"", dGroup.Options, "\"")
+	dockerOPTS := fmt.Sprint("DOCKER_OPTS=\"", dGroup.Options, "\n")
 	defaultFilePath := fmt.Sprint("/etc/default/", dGroup.Name)
-	err = ioutil.WriteFile(defaultFilePath, []byte(dockerOPTS), 0655)
+	err = ioutil.WriteFile(defaultFilePath, []byte(dockerOPTS), 0644)
 	if err != nil {
 		panic(err)
 	}
