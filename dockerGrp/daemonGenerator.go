@@ -203,7 +203,7 @@ func (dGroup DockerGroup) generateUpstartDaemon() {
 		panic(err)
 	}
 
-	dockerOPTS := fmt.Sprint("DOCKER_OPTS=\"", dGroup.Options, "\n")
+	dockerOPTS := fmt.Sprint("DOCKER_OPTS=\"", dGroup.Options, "\n\"")
 	defaultFilePath := fmt.Sprint("/etc/default/", dGroup.Name)
 	err = ioutil.WriteFile(defaultFilePath, []byte(dockerOPTS), 0644)
 	if err != nil {
