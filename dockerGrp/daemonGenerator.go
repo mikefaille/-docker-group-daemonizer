@@ -48,7 +48,7 @@ func (gDocker DockerGroup) AddNewDockerBr() {
 
 func (dGroup DockerGroup) GenerateDockerDaemon() {
 
-	tmpl, err := template.New("dockerOpts").Parse("-b  {{.Name}}  -g /var/lib/{{.Name}}  -G {{.Name}}  --exec-root=/var/run/docker{{.Number}} --pidfile=\"/var/run/{{.Name}}.pid\" --label=[\"equipe={{.Number}}\"] -H unix:///var/run/{{.Name}}.sock")
+	tmpl, err := template.New("dockerOpts").Parse("-b  {{.Name}}  -g /var/lib/{{.Name}}  -G {{.Name}}  --exec-root=/var/run/docker{{.Number}} --pidfile=\"/var/run/{{.Name}}.pid\" --label=[\"equipe={{.Number}}\"] -H unix:///var/run/{{.Name}}.sock\n")
 	if err != nil {
 		panic(err)
 	}
