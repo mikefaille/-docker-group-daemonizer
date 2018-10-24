@@ -62,7 +62,7 @@ Cannot connect to the Docker daemon. Is 'docker -d' running on this host?
 
 Explanation no1 :
 
-You can connect to the socket `unix:///var/run/docker-eq1.sock` but the associated deamon is down. Why ? The daemon's bridge could be down or the bridge didn't receive is IP address. You can check if bridge name exist `docker-eq20` with is ip using following command to list network interfaces : `ip adddr`
+You can connect to the socket `unix:///var/run/docker-eq1.sock` but the associated deamon is down. Why ? The daemon's bridge could be down or the bridge didn't receive is IP address. You can check if bridge name exist `docker-eq1` with is ip using following command to list network interfaces : `ip adddr`
 
 Fix no1. :
 
