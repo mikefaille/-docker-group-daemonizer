@@ -1,14 +1,14 @@
 # docker-group-daemonizer
-Fast and usefull script to daemonize docker groups
+Fast and useful script to daemonize docker groups
 
-Requirement : 
+## Requirements 
 - Linux 3.10+
-- Upstart or systemd (for now systemd must activated from code)
+- Upstart or systemd (for now, systemd must be activated from the code)
 - docker 1.8+
-- to build it : Golang, GCC and linux-headers is needed since Netlink Linux interface is used
+- To build it: Golang, GCC and linux-headers are needed as the Netlink Linux interface is used
 
 
-Build : 
+## Build 
   
   ```bash
   go get github.com/mikefaille/docker-group-daemonizer
@@ -17,17 +17,17 @@ Build :
   # docker-group-daemonizer bin is now generated
   ```
 
-Usage : 
-  Create docker group using this next naming schemes : `docker-eqX`
+## Usage 
+  Create a Docker group using the following naming scheme : `docker-eqX`
   where X is a number between 1 and 100. After exec it : `sudo docker-group-daemonizer`
  
-Result : 
-Each docker-eqx group having users will obtain dedicated/isolated docker deamon.
+## Result 
+Each docker-eqx group having users will obtain dedicated/isolated docker daemon.
 
-To use these deamon using docker cli, we need to specify appropritate DOCKER_HOST env. variable for each user.
+To use these daemons with the Docker CLI, we need to specify appropriate DOCKER_HOST env. variable for each user.
 
 DOCKER_HOST must contain docker-eqx socket named /var/run/docker-eqx.sock
-Example : 
+## Example 
 
 `$ groups`
 
@@ -46,7 +46,7 @@ docker images
 And, `docker info` should output something like this : 
 ```
 (...)
-Labels:
+## Labels
  [equipe=1]
 ```
 
@@ -62,7 +62,7 @@ Cannot connect to the Docker daemon. Is 'docker -d' running on this host?
 
 Explanation no1 :
 
-You can connect to the socket `unix:///var/run/docker-eq1.sock` but the associated deamon is down. Why ? The daemon's bridge could be down or the bridge didn't receive is IP address. You can check if bridge name exist `docker-eq1` with is ip using following command to list network interfaces : `ip adddr`
+You can connect to the socket `unix:///var/run/docker-eq1.sock` but the associated daemon is down. Why ? The daemon's bridge could be down or the bridge didn't receive is IP address. You can check if bridge name exist `docker-eq1` with is ip using following command to list network interfaces : `ip adddr`
 
 Fix no1. :
 
